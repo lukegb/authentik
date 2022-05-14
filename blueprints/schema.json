@@ -103,6 +103,7 @@
                             "authentik_stages_deny.denystage",
                             "authentik_stages_dummy.dummystage",
                             "authentik_stages_email.emailstage",
+                            "authentik_stages_ext_auth.extauthstage",
                             "authentik_stages_identification.identificationstage",
                             "authentik_stages_invitation.invitation",
                             "authentik_stages_invitation.invitationstage",

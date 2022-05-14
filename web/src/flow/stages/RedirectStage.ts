@@ -17,6 +17,13 @@ import { FlowChallengeResponseRequest, RedirectChallenge } from "@goauthentik/ap
 
 @customElement("ak-stage-redirect")
 export class RedirectStage extends BaseStage<RedirectChallenge, FlowChallengeResponseRequest> {
+    constructor() {
+        super();
+        if (this.challenge.silent) {
+            window.location.assign(this.renderURL());
+        }
+    }
+
     static get styles(): CSSResult[] {
         return [
             PFBase,

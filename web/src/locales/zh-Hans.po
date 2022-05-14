@@ -39,6 +39,8 @@ msgstr "（格式：hours=1;minutes=2;seconds=3）。"
 #: src/admin/applications/ApplicationListPage.ts
 #: src/admin/events/EventListPage.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/groups/GroupListPage.ts
 #: src/admin/groups/MemberSelectModal.ts
 #: src/admin/groups/RelatedGroupList.ts
@@ -189,19 +191,25 @@ msgstr "关于应用"
 msgid "Access Key"
 msgstr "访问密钥"
 
-#~ msgid "Access code validity"
-#~ msgstr "访问代码有效性"
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Access Token validity"
+msgstr ""
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Access code validity"
+msgstr "访问代码有效性"
 
 #: src/admin/sources/oauth/OAuthSourceForm.ts
 msgid "Access token URL"
 msgstr "访问令牌 URL"
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "Access token validity"
-msgstr "访问令牌有效性"
+#~ msgid "Access token validity"
+#~ msgstr "访问令牌有效性"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
@@ -472,6 +480,7 @@ msgid "Any policy must match to grant access"
 msgstr ""
 
 #: src/admin/events/EventInfo.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 msgid "App"
 msgstr "应用"
@@ -1238,6 +1247,7 @@ msgstr "客户端 ID"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
@@ -1312,16 +1322,21 @@ msgstr "配置阶段"
 #~ msgid "Configure WebAuthn"
 #~ msgstr "配置 WebAuthn"
 
-#~ msgid "Configure how long access codes are valid for."
-#~ msgstr "配置访问代码的有效期限。"
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Configure how long access codes are valid for."
+msgstr "配置访问代码的有效期限。"
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
 msgid "Configure how long access tokens are valid for."
 msgstr "配置访问令牌的有效期限。"
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "Configure how long refresh tokens and their id_tokens are valid for."
-msgstr "配置刷新令牌及其 id_tokens 的有效期限。"
+#~ msgid "Configure how long refresh tokens and their id_tokens are valid for."
+#~ msgstr "配置刷新令牌及其 id_tokens 的有效期限。"
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Configure how long refresh tokens are valid for."
+msgstr ""
 
 #: src/admin/providers/proxy/ProxyProviderForm.ts
 msgid "Configure how long tokens are valid for."
@@ -1732,6 +1747,10 @@ msgstr ""
 msgid "Create {0}"
 msgstr "创建 {0}"
 
+#: src/admin/events/EventViewPage.ts
+msgid "Created"
+msgstr ""
+
 #: src/admin/stages/invitation/InvitationListPage.ts
 msgid "Created by"
 msgstr "创建者"
@@ -1975,6 +1994,10 @@ msgstr "设备"
 #: src/admin/sources/oauth/OAuthSourceViewPage.ts
 msgid "Diagram"
 msgstr "流程图"
+
+#: src/admin/stages/user_login/UserLoginStageForm.ts
+msgid "Different browsers handle session cookies differently, and might not remove them even when the browser is closed."
+msgstr ""
 
 #: src/admin/providers/saml/SAMLProviderForm.ts
 #: src/admin/sources/saml/SAMLSourceForm.ts
@@ -2333,7 +2356,7 @@ msgstr "在流程规划过程中评估策略。对于基于输入的策略，请
 msgid "Event Log"
 msgstr "事件日志"
 
-#: src/admin/events/EventInfoPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Event info"
 msgstr "事件信息"
 
@@ -2347,7 +2370,7 @@ msgstr "事件信息"
 msgid "Event retention"
 msgstr "事件保留"
 
-#: src/admin/events/EventInfoPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Event {0}"
 msgstr "事件 {0}"
 
@@ -2857,7 +2880,6 @@ msgstr "组"
 
 #: src/admin/AdminInterface.ts
 #: src/admin/groups/GroupListPage.ts
-#: src/admin/users/UserForm.ts
 #: src/admin/users/UserViewPage.ts
 msgid "Groups"
 msgstr "组"
@@ -2995,7 +3017,9 @@ msgstr "浏览器选项卡中显示的图标。"
 #: src/admin/system-tasks/SystemTaskListPage.ts
 #: src/admin/tokens/TokenForm.ts
 #: src/admin/tokens/TokenListPage.ts
+#: src/admin/tokens/TokenListPage.ts
 #: src/user/user-settings/tokens/UserTokenForm.ts
+#: src/user/user-settings/tokens/UserTokenList.ts
 #: src/user/user-settings/tokens/UserTokenList.ts
 msgid "Identifier"
 msgstr "标识符"
@@ -3073,8 +3097,8 @@ msgid "If this is selected, the token will expire. Upon expiration, the token wi
 msgstr "如果选择此选项，令牌将能够过期。过期时，令牌将被轮换。"
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
-msgstr "如果您使用的是隐式的客户端流程（不使用令牌端点），您可能想增加此时间。"
+#~ msgid "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
+#~ msgstr "如果您使用的是隐式的客户端流程（不使用令牌端点），您可能想增加此时间。"
 
 #: src/admin/outposts/OutpostDeploymentModal.ts
 msgid "If your authentik Instance is using a self-signed certificate, set this value."
@@ -3429,6 +3453,7 @@ msgstr "加载服务器"
 
 #: src/admin/applications/ApplicationViewPage.ts
 #: src/admin/applications/ApplicationViewPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/elements/table/Table.ts
 #: src/flow/FlowExecutor.ts
 #: src/flow/FlowExecutor.ts
@@ -3468,7 +3493,6 @@ msgstr ""
 
 #: src/admin/events/RuleForm.ts
 #: src/admin/flows/StageBindingForm.ts
-#: src/admin/groups/GroupForm.ts
 #: src/admin/outposts/OutpostForm.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/admin/providers/ldap/LDAPProviderForm.ts
@@ -3485,7 +3509,6 @@ msgstr ""
 #: src/admin/stages/invitation/InvitationListLink.ts
 #: src/admin/stages/prompt/PromptStageForm.ts
 #: src/admin/stages/prompt/PromptStageForm.ts
-#: src/admin/users/UserForm.ts
 #: src/elements/Spinner.ts
 msgid "Loading..."
 msgstr "正在加载……"
@@ -3653,7 +3676,6 @@ msgstr "根据域名后缀完成匹配，因此，如果您输入 domain.tld，f
 msgid "Maximum age (in days)"
 msgstr "最长使用期限（单位为天）"
 
-#: src/admin/groups/GroupForm.ts
 #: src/admin/groups/GroupListPage.ts
 #: src/admin/users/GroupSelectModal.ts
 msgid "Members"
@@ -3816,6 +3838,7 @@ msgstr "我的应用"
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationForm.ts
 #: src/admin/stages/invitation/InvitationListPage.ts
@@ -4135,8 +4158,12 @@ msgstr "短信的发信人号码。"
 #~ msgstr "OAuth 授权代码"
 
 #: src/admin/users/UserViewPage.ts
-msgid "OAuth Refresh Codes"
-msgstr "OAuth 刷新代码"
+#~ msgid "OAuth Refresh Codes"
+#~ msgstr "OAuth 刷新代码"
+
+#: src/admin/users/UserViewPage.ts
+msgid "OAuth Refresh Tokens"
+msgstr ""
 
 #: src/admin/sources/oauth/OAuthSourceDiagram.ts
 msgid "OAuth Source {0}"
@@ -4206,6 +4233,7 @@ msgstr "同意过期后的偏移。"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
 msgid "On behalf of {0}"
@@ -4868,6 +4896,18 @@ msgstr "重定向 URI/Origin（正则）"
 msgid "Redirect binding"
 msgstr "重定向绑定"
 
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect silently"
+msgstr ""
+
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect the user silently without an interstitial page."
+msgstr ""
+
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect the user to their selected external authentication provider."
+msgstr ""
+
 #: src/elements/table/Table.ts
 #: src/elements/user/UserDevicesList.ts
 msgid "Refresh"
@@ -4877,8 +4917,16 @@ msgstr "刷新"
 #~ msgstr "刷新代码"
 
 #: src/elements/oauth/UserRefreshList.ts
-msgid "Refresh Code(s)"
-msgstr "刷新代码"
+#~ msgid "Refresh Code(s)"
+#~ msgstr "刷新代码"
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Refresh Token validity"
+msgstr ""
+
+#: src/elements/oauth/UserRefreshList.ts
+msgid "Refresh Tokens(s)"
+msgstr ""
 
 #: src/flow/stages/authenticator_webauthn/WebAuthnAuthenticatorRegisterStage.ts
 msgid "Register device"
@@ -5254,6 +5302,10 @@ msgstr "安全密钥身份验证器"
 #: src/admin/property-mappings/PropertyMappingScopeForm.ts
 msgid "See documentation for a list of all variables."
 msgstr "请阅读文档了解完整变量列表。"
+
+#: src/admin/stages/user_login/UserLoginStageForm.ts
+msgid "See here."
+msgstr ""
 
 #: src/admin/blueprints/BlueprintForm.ts
 msgid "See more about OCI support here:"
@@ -5685,6 +5737,7 @@ msgstr "阶段"
 #: src/admin/stages/captcha/CaptchaStageForm.ts
 #: src/admin/stages/consent/ConsentStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -5898,6 +5951,7 @@ msgstr "已成功创建源。"
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -6079,6 +6133,7 @@ msgstr "已成功更新源。"
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -6231,6 +6286,7 @@ msgstr "模板"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Tenant"
 msgstr "租户"
 
@@ -6513,7 +6569,6 @@ msgstr "令牌过期"
 msgid "Token is managed by authentik."
 msgstr "令牌由 authentik 管理。"
 
-#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
 #: src/admin/providers/proxy/ProxyProviderForm.ts
 msgid "Token validity"
 msgstr "令牌有效性"
@@ -7041,6 +7096,7 @@ msgstr ""
 #: src/admin/applications/ApplicationCheckAccessForm.ts
 #: src/admin/events/EventInfo.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/PolicyBindingForm.ts
 #: src/admin/policies/PolicyBindingForm.ts
 #: src/admin/policies/PolicyTestForm.ts

@@ -22078,6 +22078,284 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericError'
           description: ''
+  /stages/ext_auth/:
+    get:
+      operationId: stages_ext_auth_list
+      description: ExtAuthStage Viewset
+      parameters:
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: silent
+        schema:
+          type: boolean
+      - in: query
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+      tags:
+      - stages
+      security:
+      - authentik: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedExtAuthStageList'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+    post:
+      operationId: stages_ext_auth_create
+      description: ExtAuthStage Viewset
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtAuthStageRequest'
+        required: true
+      security:
+      - authentik: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtAuthStage'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+  /stages/ext_auth/{stage_uuid}/:
+    get:
+      operationId: stages_ext_auth_retrieve
+      description: ExtAuthStage Viewset
+      parameters:
+      - in: path
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this ExtAuth Stage.
+        required: true
+      tags:
+      - stages
+      security:
+      - authentik: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtAuthStage'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+    put:
+      operationId: stages_ext_auth_update
+      description: ExtAuthStage Viewset
+      parameters:
+      - in: path
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this ExtAuth Stage.
+        required: true
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtAuthStageRequest'
+        required: true
+      security:
+      - authentik: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtAuthStage'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+    patch:
+      operationId: stages_ext_auth_partial_update
+      description: ExtAuthStage Viewset
+      parameters:
+      - in: path
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this ExtAuth Stage.
+        required: true
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedExtAuthStageRequest'
+      security:
+      - authentik: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtAuthStage'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+    delete:
+      operationId: stages_ext_auth_destroy
+      description: ExtAuthStage Viewset
+      parameters:
+      - in: path
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this ExtAuth Stage.
+        required: true
+      tags:
+      - stages
+      security:
+      - authentik: []
+      responses:
+        '204':
+          description: No response body
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
+  /stages/ext_auth/{stage_uuid}/used_by/:
+    get:
+      operationId: stages_ext_auth_used_by_list
+      description: Get a list of all objects that use this object
+      parameters:
+      - in: path
+        name: stage_uuid
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this ExtAuth Stage.
+        required: true
+      tags:
+      - stages
+      security:
+      - authentik: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsedBy'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: ''
   /stages/identification/:
     get:
       operationId: stages_identification_list
@@ -25010,6 +25288,7 @@ components:
       - authentik.stages.deny
       - authentik.stages.dummy
       - authentik.stages.email
+      - authentik.stages.ext_auth
       - authentik.stages.identification
       - authentik.stages.invitation
       - authentik.stages.password
@@ -27605,6 +27884,61 @@ components:
           minLength: 1
       required:
       - expression
+      - name
+    ExtAuthStage:
+      type: object
+      description: ExtAuthStage Serializer
+      properties:
+        pk:
+          type: string
+          format: uuid
+          readOnly: true
+          title: Stage uuid
+        name:
+          type: string
+        component:
+          type: string
+          readOnly: true
+        verbose_name:
+          type: string
+          readOnly: true
+        verbose_name_plural:
+          type: string
+          readOnly: true
+        meta_model_name:
+          type: string
+          readOnly: true
+        flow_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowSet'
+        silent:
+          type: boolean
+          description: When enabled, the HTML flow executor will immediately initiate
+            logging in with the user's external authentication service.
+      required:
+      - component
+      - meta_model_name
+      - name
+      - pk
+      - verbose_name
+      - verbose_name_plural
+    ExtAuthStageRequest:
+      type: object
+      description: ExtAuthStage Serializer
+      properties:
+        name:
+          type: string
+          minLength: 1
+        flow_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowSetRequest'
+        silent:
+          type: boolean
+          description: When enabled, the HTML flow executor will immediately initiate
+            logging in with the user's external authentication service.
+      required:
       - name
     FilePathRequest:
       type: object
@@ -30911,6 +31245,41 @@ components:
       required:
       - pagination
       - results
+    PaginatedExtAuthStageList:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            next:
+              type: number
+            previous:
+              type: number
+            count:
+              type: number
+            current:
+              type: number
+            total_pages:
+              type: number
+            start_index:
+              type: number
+            end_index:
+              type: number
+          required:
+          - next
+          - previous
+          - count
+          - current
+          - total_pages
+          - start_index
+          - end_index
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtAuthStage'
+      required:
+      - pagination
+      - results
     PaginatedFlowList:
       type: object
       properties:
@@ -33698,6 +34067,21 @@ components:
         expression:
           type: string
           minLength: 1
+    PatchedExtAuthStageRequest:
+      type: object
+      description: ExtAuthStage Serializer
+      properties:
+        name:
+          type: string
+          minLength: 1
+        flow_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowSetRequest'
+        silent:
+          type: boolean
+          description: When enabled, the HTML flow executor will immediately initiate
+            logging in with the user's external authentication service.
     PatchedFlowRequest:
       type: object
       description: Flow Serializer
@@ -36219,6 +36603,9 @@ components:
               $ref: '#/components/schemas/ErrorDetail'
         to:
           type: string
+        silent:
+          type: boolean
+          default: false
       required:
       - to
       - type

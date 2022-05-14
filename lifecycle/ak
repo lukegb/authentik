@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/run/current-system/sw/bin/bash -e
 function log {
     printf '{"event": "%s", "level": "info", "logger": "bootstrap"}\n' "$@" > /dev/stderr
 }

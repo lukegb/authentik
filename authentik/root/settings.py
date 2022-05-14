@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     "authentik.stages.deny",
     "authentik.stages.dummy",
     "authentik.stages.email",
+    "authentik.stages.ext_auth",
     "authentik.stages.identification",
     "authentik.stages.invitation",
     "authentik.stages.password",

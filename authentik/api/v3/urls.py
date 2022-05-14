@@ -96,6 +96,7 @@ from authentik.stages.consent.api import ConsentStageViewSet, UserConsentViewSet
 from authentik.stages.deny.api import DenyStageViewSet
 from authentik.stages.dummy.api import DummyStageViewSet
 from authentik.stages.email.api import EmailStageViewSet
+from authentik.stages.ext_auth.api import ExtAuthStageViewSet
 from authentik.stages.identification.api import IdentificationStageViewSet
 from authentik.stages.invitation.api import InvitationStageViewSet, InvitationViewSet
 from authentik.stages.password.api import PasswordStageViewSet
@@ -218,6 +219,7 @@ router.register("stages/captcha", CaptchaStageViewSet)
 router.register("stages/consent", ConsentStageViewSet)
 router.register("stages/deny", DenyStageViewSet)
 router.register("stages/email", EmailStageViewSet)
+router.register("stages/ext_auth", ExtAuthStageViewSet)
 router.register("stages/identification", IdentificationStageViewSet)
 router.register("stages/invitation/invitations", InvitationViewSet)
 router.register("stages/invitation/stages", InvitationStageViewSet)

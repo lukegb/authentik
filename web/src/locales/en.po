@@ -35,6 +35,8 @@ msgstr "(Format: hours=1;minutes=2;seconds=3)."
 #: src/admin/applications/ApplicationListPage.ts
 #: src/admin/events/EventListPage.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/groups/GroupListPage.ts
 #: src/admin/groups/MemberSelectModal.ts
 #: src/admin/groups/RelatedGroupList.ts
@@ -181,20 +183,25 @@ msgstr "About applications"
 msgid "Access Key"
 msgstr "Access Key"
 
-#: 
-#~ msgid "Access code validity"
-#~ msgstr "Access code validity"
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Access Token validity"
+msgstr "Access Token validity"
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Access code validity"
+msgstr "Access code validity"
 
 #: src/admin/sources/oauth/OAuthSourceForm.ts
 msgid "Access token URL"
 msgstr "Access token URL"
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "Access token validity"
-msgstr "Access token validity"
+#~ msgid "Access token validity"
+#~ msgstr "Access token validity"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
@@ -471,6 +478,7 @@ msgid "Any policy must match to grant access"
 msgstr "Any policy must match to grant access"
 
 #: src/admin/events/EventInfo.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 msgid "App"
 msgstr "App"
@@ -1250,6 +1258,7 @@ msgstr "Client ID"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
@@ -1326,17 +1335,21 @@ msgstr "Configuration stages"
 #~ msgid "Configure WebAuthn"
 #~ msgstr "Configure WebAuthn"
 
-#: 
-#~ msgid "Configure how long access codes are valid for."
-#~ msgstr "Configure how long access codes are valid for."
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Configure how long access codes are valid for."
+msgstr "Configure how long access codes are valid for."
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
 msgid "Configure how long access tokens are valid for."
 msgstr "Configure how long access tokens are valid for."
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "Configure how long refresh tokens and their id_tokens are valid for."
-msgstr "Configure how long refresh tokens and their id_tokens are valid for."
+#~ msgid "Configure how long refresh tokens and their id_tokens are valid for."
+#~ msgstr "Configure how long refresh tokens and their id_tokens are valid for."
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Configure how long refresh tokens are valid for."
+msgstr "Configure how long refresh tokens are valid for."
 
 #: src/admin/providers/proxy/ProxyProviderForm.ts
 msgid "Configure how long tokens are valid for."
@@ -1752,6 +1765,10 @@ msgstr "Create users when required"
 msgid "Create {0}"
 msgstr "Create {0}"
 
+#: src/admin/events/EventViewPage.ts
+msgid "Created"
+msgstr "Created"
+
 #: src/admin/stages/invitation/InvitationListPage.ts
 msgid "Created by"
 msgstr "Created by"
@@ -2004,6 +2021,10 @@ msgstr "Device(s)"
 #: src/admin/sources/oauth/OAuthSourceViewPage.ts
 msgid "Diagram"
 msgstr "Diagram"
+
+#: src/admin/stages/user_login/UserLoginStageForm.ts
+msgid "Different browsers handle session cookies differently, and might not remove them even when the browser is closed."
+msgstr "Different browsers handle session cookies differently, and might not remove them even when the browser is closed."
 
 #: src/admin/providers/saml/SAMLProviderForm.ts
 #: src/admin/sources/saml/SAMLSourceForm.ts
@@ -2378,7 +2399,7 @@ msgstr "Evaluate policies during the Flow planning process. Disable this for inp
 msgid "Event Log"
 msgstr "Event Log"
 
-#: src/admin/events/EventInfoPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Event info"
 msgstr "Event info"
 
@@ -2395,7 +2416,7 @@ msgstr "Event info"
 msgid "Event retention"
 msgstr "Event retention"
 
-#: src/admin/events/EventInfoPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Event {0}"
 msgstr "Event {0}"
 
@@ -2912,7 +2933,6 @@ msgstr "Group(s)"
 
 #: src/admin/AdminInterface.ts
 #: src/admin/groups/GroupListPage.ts
-#: src/admin/users/UserForm.ts
 #: src/admin/users/UserViewPage.ts
 msgid "Groups"
 msgstr "Groups"
@@ -3055,7 +3075,9 @@ msgstr "Icon shown in the browser tab."
 #: src/admin/system-tasks/SystemTaskListPage.ts
 #: src/admin/tokens/TokenForm.ts
 #: src/admin/tokens/TokenListPage.ts
+#: src/admin/tokens/TokenListPage.ts
 #: src/user/user-settings/tokens/UserTokenForm.ts
+#: src/user/user-settings/tokens/UserTokenList.ts
 #: src/user/user-settings/tokens/UserTokenList.ts
 msgid "Identifier"
 msgstr "Identifier"
@@ -3138,8 +3160,8 @@ msgid "If this is selected, the token will expire. Upon expiration, the token wi
 msgstr "If this is selected, the token will expire. Upon expiration, the token will be rotated."
 
 #: src/admin/providers/oauth2/OAuth2ProviderForm.ts
-msgid "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
-msgstr "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
+#~ msgid "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
+#~ msgstr "If you are using an Implicit, client-side flow (where the token-endpoint isn't used), you probably want to increase this time."
 
 #: src/admin/outposts/OutpostDeploymentModal.ts
 msgid "If your authentik Instance is using a self-signed certificate, set this value."
@@ -3500,6 +3522,7 @@ msgstr "Load servers"
 
 #: src/admin/applications/ApplicationViewPage.ts
 #: src/admin/applications/ApplicationViewPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/elements/table/Table.ts
 #: src/flow/FlowExecutor.ts
 #: src/flow/FlowExecutor.ts
@@ -3539,7 +3562,6 @@ msgstr "Loading options..."
 
 #: src/admin/events/RuleForm.ts
 #: src/admin/flows/StageBindingForm.ts
-#: src/admin/groups/GroupForm.ts
 #: src/admin/outposts/OutpostForm.ts
 #: src/admin/policies/event_matcher/EventMatcherPolicyForm.ts
 #: src/admin/providers/ldap/LDAPProviderForm.ts
@@ -3556,7 +3578,6 @@ msgstr "Loading options..."
 #: src/admin/stages/invitation/InvitationListLink.ts
 #: src/admin/stages/prompt/PromptStageForm.ts
 #: src/admin/stages/prompt/PromptStageForm.ts
-#: src/admin/users/UserForm.ts
 #: src/elements/Spinner.ts
 msgid "Loading..."
 msgstr "Loading..."
@@ -3725,7 +3746,6 @@ msgstr "Matching is done based on domain suffix, so if you enter domain.tld, foo
 msgid "Maximum age (in days)"
 msgstr "Maximum age (in days)"
 
-#: src/admin/groups/GroupForm.ts
 #: src/admin/groups/GroupListPage.ts
 #: src/admin/users/GroupSelectModal.ts
 msgid "Members"
@@ -3889,6 +3909,7 @@ msgstr "My applications"
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationForm.ts
 #: src/admin/stages/invitation/InvitationListPage.ts
@@ -4214,8 +4235,12 @@ msgstr "Number the SMS will be sent from."
 #~ msgstr "OAuth Authorization Codes"
 
 #: src/admin/users/UserViewPage.ts
-msgid "OAuth Refresh Codes"
-msgstr "OAuth Refresh Codes"
+#~ msgid "OAuth Refresh Codes"
+#~ msgstr "OAuth Refresh Codes"
+
+#: src/admin/users/UserViewPage.ts
+msgid "OAuth Refresh Tokens"
+msgstr "OAuth Refresh Tokens"
 
 #: src/admin/sources/oauth/OAuthSourceDiagram.ts
 msgid "OAuth Source {0}"
@@ -4288,6 +4313,7 @@ msgstr "Offset after which consent expires."
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/elements/events/ObjectChangelog.ts
 #: src/elements/events/UserEvents.ts
 msgid "On behalf of {0}"
@@ -4975,6 +5001,18 @@ msgstr "Redirect URIs/Origins (RegEx)"
 msgid "Redirect binding"
 msgstr "Redirect binding"
 
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect silently"
+msgstr "Redirect silently"
+
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect the user silently without an interstitial page."
+msgstr "Redirect the user silently without an interstitial page."
+
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
+msgid "Redirect the user to their selected external authentication provider."
+msgstr "Redirect the user to their selected external authentication provider."
+
 #: src/elements/table/Table.ts
 #: src/elements/user/UserDevicesList.ts
 msgid "Refresh"
@@ -4985,8 +5023,16 @@ msgstr "Refresh"
 #~ msgstr "Refresh Code"
 
 #: src/elements/oauth/UserRefreshList.ts
-msgid "Refresh Code(s)"
-msgstr "Refresh Code(s)"
+#~ msgid "Refresh Code(s)"
+#~ msgstr "Refresh Code(s)"
+
+#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
+msgid "Refresh Token validity"
+msgstr "Refresh Token validity"
+
+#: src/elements/oauth/UserRefreshList.ts
+msgid "Refresh Tokens(s)"
+msgstr "Refresh Tokens(s)"
 
 #: src/flow/stages/authenticator_webauthn/WebAuthnAuthenticatorRegisterStage.ts
 msgid "Register device"
@@ -5375,6 +5421,10 @@ msgstr "Security key authenticator"
 #: src/admin/property-mappings/PropertyMappingScopeForm.ts
 msgid "See documentation for a list of all variables."
 msgstr "See documentation for a list of all variables."
+
+#: src/admin/stages/user_login/UserLoginStageForm.ts
+msgid "See here."
+msgstr "See here."
 
 #: src/admin/blueprints/BlueprintForm.ts
 msgid "See more about OCI support here:"
@@ -5822,6 +5872,7 @@ msgstr "Stage(s)"
 #: src/admin/stages/captcha/CaptchaStageForm.ts
 #: src/admin/stages/consent/ConsentStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -6045,6 +6096,7 @@ msgstr "Successfully created source."
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -6229,6 +6281,7 @@ msgstr "Successfully updated source."
 #: src/admin/stages/deny/DenyStageForm.ts
 #: src/admin/stages/dummy/DummyStageForm.ts
 #: src/admin/stages/email/EmailStageForm.ts
+#: src/admin/stages/ext_auth/ExtAuthStageForm.ts
 #: src/admin/stages/identification/IdentificationStageForm.ts
 #: src/admin/stages/invitation/InvitationStageForm.ts
 #: src/admin/stages/password/PasswordStageForm.ts
@@ -6386,6 +6439,7 @@ msgstr "Template"
 
 #: src/admin/admin-overview/cards/RecentEventsCard.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 msgid "Tenant"
 msgstr "Tenant"
 
@@ -6677,7 +6731,6 @@ msgstr "Token expiry"
 msgid "Token is managed by authentik."
 msgstr "Token is managed by authentik."
 
-#: src/admin/providers/oauth2/OAuth2ProviderForm.ts
 #: src/admin/providers/proxy/ProxyProviderForm.ts
 msgid "Token validity"
 msgstr "Token validity"
@@ -7206,6 +7259,7 @@ msgstr "Used to login using a flow executor"
 #: src/admin/applications/ApplicationCheckAccessForm.ts
 #: src/admin/events/EventInfo.ts
 #: src/admin/events/EventListPage.ts
+#: src/admin/events/EventViewPage.ts
 #: src/admin/policies/PolicyBindingForm.ts
 #: src/admin/policies/PolicyBindingForm.ts
 #: src/admin/policies/PolicyTestForm.ts

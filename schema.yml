@@ -17893,7 +17893,7 @@ paths:
         schema:
           type: string
           format: uuid
-        description: A UUID string identifying this connection token.
+        description: A UUID string identifying this RAC Connection token.
         required: true
       tags:
       - rac
@@ -17927,7 +17927,7 @@ paths:
         schema:
           type: string
           format: uuid
-        description: A UUID string identifying this connection token.
+        description: A UUID string identifying this RAC Connection token.
         required: true
       tags:
       - rac
@@ -17967,7 +17967,7 @@ paths:
         schema:
           type: string
           format: uuid
-        description: A UUID string identifying this connection token.
+        description: A UUID string identifying this RAC Connection token.
         required: true
       tags:
       - rac
@@ -18006,7 +18006,7 @@ paths:
         schema:
           type: string
           format: uuid
-        description: A UUID string identifying this connection token.
+        description: A UUID string identifying this RAC Connection token.
         required: true
       tags:
       - rac
@@ -18037,7 +18037,7 @@ paths:
         schema:
           type: string
           format: uuid
-        description: A UUID string identifying this connection token.
+        description: A UUID string identifying this RAC Connection token.
         required: true
       tags:
       - rac
@@ -18514,6 +18514,7 @@ paths:
           - authentik_stages_deny.denystage
           - authentik_stages_dummy.dummystage
           - authentik_stages_email.emailstage
+          - authentik_stages_ext_auth.extauthstage
           - authentik_stages_identification.identificationstage
           - authentik_stages_invitation.invitation
           - authentik_stages_invitation.invitationstage
@@ -18575,6 +18576,7 @@ paths:
           * `authentik_stages_deny.denystage` - Deny Stage
           * `authentik_stages_dummy.dummystage` - Dummy Stage
           * `authentik_stages_email.emailstage` - Email Stage
+          * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
           * `authentik_stages_identification.identificationstage` - Identification Stage
           * `authentik_stages_invitation.invitationstage` - Invitation Stage
           * `authentik_stages_invitation.invitation` - Invitation
@@ -18802,6 +18804,7 @@ paths:
           - authentik_stages_deny.denystage
           - authentik_stages_dummy.dummystage
           - authentik_stages_email.emailstage
+          - authentik_stages_ext_auth.extauthstage
           - authentik_stages_identification.identificationstage
           - authentik_stages_invitation.invitation
           - authentik_stages_invitation.invitationstage
@@ -18863,6 +18866,7 @@ paths:
           * `authentik_stages_deny.denystage` - Deny Stage
           * `authentik_stages_dummy.dummystage` - Dummy Stage
           * `authentik_stages_email.emailstage` - Email Stage
+          * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
           * `authentik_stages_identification.identificationstage` - Identification Stage
           * `authentik_stages_invitation.invitationstage` - Invitation Stage
           * `authentik_stages_invitation.invitation` - Invitation
@@ -33081,6 +33085,7 @@ components:
             * `authentik_stages_deny.denystage` - Deny Stage
             * `authentik_stages_dummy.dummystage` - Dummy Stage
             * `authentik_stages_email.emailstage` - Email Stage
+            * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
             * `authentik_stages_identification.identificationstage` - Identification Stage
             * `authentik_stages_invitation.invitationstage` - Invitation Stage
             * `authentik_stages_invitation.invitation` - Invitation
@@ -33281,6 +33286,7 @@ components:
             * `authentik_stages_deny.denystage` - Deny Stage
             * `authentik_stages_dummy.dummystage` - Dummy Stage
             * `authentik_stages_email.emailstage` - Email Stage
+            * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
             * `authentik_stages_identification.identificationstage` - Identification Stage
             * `authentik_stages_invitation.invitationstage` - Invitation Stage
             * `authentik_stages_invitation.invitation` - Invitation
@@ -33437,6 +33443,57 @@ components:
       required:
       - expression
       - name
+    ExtAuthStage:
+      type: object
+      description: ExtAuthStage Serializer
+      properties:
+        pk:
+          type: string
+          format: uuid
+          readOnly: true
+          title: Stage uuid
+        name:
+          type: string
+        component:
+          type: string
+          description: Get object type so that we know how to edit the object
+          readOnly: true
+        verbose_name:
+          type: string
+          description: Return object's verbose_name
+          readOnly: true
+        verbose_name_plural:
+          type: string
+          description: Return object's plural verbose_name
+          readOnly: true
+        meta_model_name:
+          type: string
+          description: Return internal model name
+          readOnly: true
+        flow_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowSet'
+      required:
+      - component
+      - meta_model_name
+      - name
+      - pk
+      - verbose_name
+      - verbose_name_plural
+    ExtAuthStageRequest:
+      type: object
+      description: ExtAuthStage Serializer
+      properties:
+        name:
+          type: string
+          minLength: 1
+        flow_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowSetRequest'
+      required:
+      - name
     ExtraRoleObjectPermission:
       type: object
       description: User permission with additional object-related data
@@ -33537,57 +33594,6 @@ components:
       - name
       - object_description
       - object_pk
-    ExtAuthStage:
-      type: object
-      description: ExtAuthStage Serializer
-      properties:
-        pk:
-          type: string
-          format: uuid
-          readOnly: true
-          title: Stage uuid
-        name:
-          type: string
-        component:
-          type: string
-          description: Get object type so that we know how to edit the object
-          readOnly: true
-        verbose_name:
-          type: string
-          description: Return object's verbose_name
-          readOnly: true
-        verbose_name_plural:
-          type: string
-          description: Return object's plural verbose_name
-          readOnly: true
-        meta_model_name:
-          type: string
-          description: Return internal model name
-          readOnly: true
-        flow_set:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlowSet'
-      required:
-      - component
-      - meta_model_name
-      - name
-      - pk
-      - verbose_name
-      - verbose_name_plural
-    ExtAuthStageRequest:
-      type: object
-      description: ExtAuthStage Serializer
-      properties:
-        name:
-          type: string
-          minLength: 1
-        flow_set:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlowSetRequest'
-      required:
-      - name
     FilePathRequest:
       type: object
       description: Serializer to upload file
@@ -35647,6 +35653,7 @@ components:
       - authentik_stages_deny.denystage
       - authentik_stages_dummy.dummystage
       - authentik_stages_email.emailstage
+      - authentik_stages_ext_auth.extauthstage
       - authentik_stages_identification.identificationstage
       - authentik_stages_invitation.invitationstage
       - authentik_stages_invitation.invitation
@@ -35723,6 +35730,7 @@ components:
         * `authentik_stages_deny.denystage` - Deny Stage
         * `authentik_stages_dummy.dummystage` - Dummy Stage
         * `authentik_stages_email.emailstage` - Email Stage
+        * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
         * `authentik_stages_identification.identificationstage` - Identification Stage
         * `authentik_stages_invitation.invitationstage` - Invitation Stage
         * `authentik_stages_invitation.invitation` - Invitation
@@ -37053,6 +37061,18 @@ components:
       required:
       - pagination
       - results
+    PaginatedExtAuthStageList:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtAuthStage'
+      required:
+      - pagination
+      - results
     PaginatedExtraRoleObjectPermissionList:
       type: object
       properties:
@@ -37074,38 +37094,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExtraUserObjectPermission'
-    PaginatedExtAuthStageList:
-      type: object
-      properties:
-        pagination:
-          type: object
-          properties:
-            next:
-              type: number
-            previous:
-              type: number
-            count:
-              type: number
-            current:
-              type: number
-            total_pages:
-              type: number
-            start_index:
-              type: number
-            end_index:
-              type: number
-          required:
-          - next
-          - previous
-          - count
-          - current
-          - total_pages
-          - start_index
-          - end_index
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExtAuthStage'
       required:
       - pagination
       - results
@@ -39010,6 +38998,7 @@ components:
             * `authentik_stages_deny.denystage` - Deny Stage
             * `authentik_stages_dummy.dummystage` - Dummy Stage
             * `authentik_stages_email.emailstage` - Email Stage
+            * `authentik_stages_ext_auth.extauthstage` - ExtAuth Stage
             * `authentik_stages_identification.identificationstage` - Identification Stage
             * `authentik_stages_invitation.invitationstage` - Invitation Stage
             * `authentik_stages_invitation.invitation` - Invitation

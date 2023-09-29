@@ -199,7 +199,8 @@ media/
 *mmdb
 
 .idea/
-/gen-*/
+#/gen-*/
+/gen-ts-api/
 data/
 
 # Local Netlify folder

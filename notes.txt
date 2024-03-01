@@ -1,0 +1,8 @@
+nix-shell -p python312 -p gnumake -p postgresql_16 -p pkg-config -p xmlsec -p libxml2.dev -p libtool -p nodejs -p wget
+
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip poetry
+poetry install
+
+python scripts/generate_config.py

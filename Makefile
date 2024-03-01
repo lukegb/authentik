@@ -124,7 +124,6 @@ gen-diff:  ## (Release) generate the changelog diff between the current schema a
 	git show $(shell git describe --tags $(shell git rev-list --tags --max-count=1)):schema.yml > old_schema.yml
 	docker run \
 		--rm -v ${PWD}:/local \
-		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-diff:2.1.0-beta.8 \
 		--markdown /local/diff.md \
 		/local/old_schema.yml /local/schema.yml
@@ -145,7 +144,6 @@ gen-clean: gen-clean-ts gen-clean-go  ## Remove generated API clients
 gen-client-ts: gen-clean-ts  ## Build and install the authentik API for Typescript into the authentik UI Application
 	docker run \
 		--rm -v ${PWD}:/local \
-		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-generator-cli:v6.5.0 generate \
 		-i /local/schema.yml \
 		-g typescript-fetch \
@@ -166,7 +164,6 @@ gen-client-go: gen-clean-go  ## Build and install the authentik API for Golang
 	cp schema.yml ./${GEN_API_GO}/
 	docker run \
 		--rm -v ${PWD}/${GEN_API_GO}:/local \
-		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-generator-cli:v6.5.0 generate \
 		-i /local/schema.yml \
 		-g go \
